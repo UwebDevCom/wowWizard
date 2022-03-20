@@ -1,0 +1,21 @@
+:host {
+    display: block;
+}
+
+.wizard-content-step-container
+{
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    padding: 30px 20px;
+    margin: 20px 0;
+    text-align: left;
+    .form-group
+    {
+        padding: 10px;
+        span {
+            display: block;
+        }
+        .radio-container
+        {display: flex;}
+    }
+}

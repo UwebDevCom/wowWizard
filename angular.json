@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wow-wizard"
+    }
+  },
+  "defaultProject": "wow-wizard",
+  "cli": {
+    "analytics": "fb6c1959-6c59-4029-9a66-93f715603ea2"
+  }
 }

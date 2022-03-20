@@ -1,0 +1,39 @@
+<div class="pop-overlay">
+    <div class="pop-container">
+        <div class="pop-content">
+            <div class="content">
+                <button type="button" class="close" (click)="closeModal()">
+                    <img src="./assets/close-pop-icon.svg" alt="close icon" />
+                </button>
+                <h2>{{config.title}}</h2>
+                <div class="wizard-navigation">
+                    <app-wizard-step
+                        *ngFor="let step of config.steps; let last = last; let first = first; let index = index"
+                        [isNotFirst]="first" [isNotLast]="last" (choosenStep)="choosenStepHandler($event)"
+                        [data]="step" [index]="index"
+                        [fieldSteps]="fieldSteps"
+                        [ngClass]="{'choosen-step' : currentStep === index, 'is-reqiured': stepIsRequired}">
+                    </app-wizard-step>
+                </div>
+                <form [formGroup]="wizardForm" (submit)="submit($event,wizardForm)">
+                    <div class="wizard-content-step">
+                        <ng-container *ngFor="let step of config.steps; let index = index">
+                            <app-wizard-content-step (stepIsRequired)="checkValidationStep($event)" [parentForm]="wizardForm" *ngIf="currentStep === index" [data]="step">
+                            </app-wizard-content-step>
+                        </ng-container>
+
+                    </div>
+                    <div class="buttons-container">
+                        <button *ngIf="currentStep >0" (click)="slideWizStep('back')" type="button">Previus</button>
+                        <div class="next-buttons">
+                            <button (click)="slideWizStep('next')" *ngIf="config.steps[currentStep] && config.steps[currentStep].isSkipable" type="button">Skip</button>
+                            <button [disabled]="!stepIsRequired" *ngIf="currentStep !== config.steps.length-1" (click)="slideWizStep('next')" type="button">Next</button>
+                            <button *ngIf="currentStep === config.steps.length-1" >submit</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

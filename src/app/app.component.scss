@@ -1,0 +1,50 @@
+:host {
+    display: block;
+}
+.container {
+    display: flex;
+
+    main {
+        margin: 100px auto;
+        text-align: center;
+        h1,
+        p {
+            color: #fff;
+        }
+        .main-description-wizard {
+            width: 100%;
+            max-width: 480px;
+        }
+        button {
+            margin-top:20px;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #00eeee;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 30px;
+            transition: all .4s;
+            &:hover {
+                background-color: #fff;
+                color: #444;
+            }
+        }
+    }
+}
+
+.background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0%;
+    z-index: -1;
+    opacity: .4;
+    background: url(https://s11.favim.com/orig/7/725/7255/72557/transparent-background-gif-transparent-Favim.com-7255762.gif) repeat top center;
+}
+
+@keyframes starsFalling{
+    0%{top:0};
+    100%{top: 1000px}
+}

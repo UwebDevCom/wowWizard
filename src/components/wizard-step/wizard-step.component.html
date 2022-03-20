@@ -1,0 +1,10 @@
+<div class="step-container">
+   <div class="step-ui" [ngClass]="{'steps-field': fieldSteps > index}">
+    <div *ngIf="!isNotFirst" class="left-line"></div>
+    <button [disabled]="!(fieldSteps >= index)" type="button" class="step-btn" (click)="stepHandler(index)"></button>
+    <div *ngIf="!isNotLast" class="right-line"></div>
+   </div>
+   <div class="step-label" [ngClass]="{'first': isNotFirst, 'last': isNotLast}">
+       <span>{{data.title}}</span>
+    </div>
+</div>

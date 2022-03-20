@@ -1,0 +1,91 @@
+.pop-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+  
+    .pop-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      bottom: 0;
+      right: 0;
+      transform: translate(-50%, -50%);
+  
+      button.close {
+          cursor: pointer;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        width: 14px;
+        z-index: 1;
+  
+        img {
+          display: inline-block;
+          width: 16x;
+          height: 16px;
+        }
+      }
+  
+      .pop-content {
+        overflow: hidden;
+        border-radius: 20px;
+        width: 100%;
+        height: 84%;
+        position: relative;
+        background-color: #fff;
+        padding: 5%;
+        display: flex;
+        color: #000;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 700px;
+        margin: auto;
+  
+        .content {
+          text-align: center;
+          width: 100%;
+          height: 100%;
+          .wizard-content-step
+          {
+              height: 200px;
+          }
+          .wizard-navigation
+          {
+              margin: 20px;
+            display: flex;
+            justify-content: space-between;
+            ::ng-deep{
+                .choosen-step
+                {
+                    button {
+                        background-color:rebeccapurple ;
+                        &.is-reqiured
+                        {
+                            cursor: not-allowed;
+                        }
+                    }
+                }
+            }
+          }
+            .buttons-container
+            {
+                
+                display: flex;
+                justify-content: space-between;
+
+                .next-buttons {
+                    width: 100%;
+                    text-align: right;
+                }
+            }
+        }
+      }
+    }
+  }
+  

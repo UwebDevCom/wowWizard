@@ -1,0 +1,17 @@
+<div [formGroup]="parentForm" class="wizard-content-step-container">
+    <p>{{data.htmlHeaderContent}}</p>
+    <div class="form-group">
+        <label>{{data.title}}</label>
+        <ng-container [ngSwitch]="data.type">
+            <input (change)="checkValidationByStep()" *ngSwitchCase="'EMAIL'" type="email" [formControlName]="data.title" [placeholder]="data.placeHolder" />
+            <input (change)="checkValidationByStep()" *ngSwitchCase="'CHECKBOX'" type="checkbox" [formControlName]="data.title" [placeholder]="data.placeHolder" />
+            <ng-container *ngSwitchCase="'RADIO'">
+                <label class="radio-container" *ngFor="let option of data.options">
+                    <input (change)="checkValidationByStep()" [name]="data.title" [value]="option" type="radio" [formControlName]="data.title" [placeholder]="data.placeHolder" />
+                   <span>{{option}}</span>
+                </label>
+            </ng-container>
+            <ng-container *ngSwitchDefault>Default</ng-container>
+        </ng-container>
+    </div>
+</div>
